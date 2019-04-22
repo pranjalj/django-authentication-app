@@ -1,2 +1,2 @@
 # django-authentication-app
-This is simple login and registration page
+This branch add password reset link to simple-login-and-registration branch.
