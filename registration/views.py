@@ -9,9 +9,12 @@ def register(request):
 	if request.method=='POST':
 		form=RegisterForm(request.POST)
 		if form.is_valid():
-			form.save()
+			user_info = form.save(commit=False)
+			first_name=form.cleaned_data.get('first_name')
 			username=form.cleaned_data.get('username')
-			messages.success(request,username+' registered')
+			user_info.email = username
+			user_info.save()
+			messages.success(request,first_name+' registered')
 			return redirect('login')
 	else:
 		form=RegisterForm()
