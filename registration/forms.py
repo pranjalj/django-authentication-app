@@ -4,19 +4,19 @@ from django.contrib.auth.forms import UserCreationForm
 
 #registration form
 class RegisterForm(UserCreationForm):
-	email = forms.EmailField()
+	first_name = forms.CharField(max_length=30)
 	class Meta:
 		model = User
-		fields = ['username','email','password1','password2']
+		fields = ['username','first_name','password1','password2']
 		widgets = {
-			'name': forms.TextInput(attrs={'placeholder': 'Name'}),
-			'email': forms.EmailInput(attrs={'placeholder': 'Email'}),
+			'username': forms.EmailInput(attrs={'placeholder': 'Email'}),#email=username
+			'first_name': forms.TextInput(attrs={'placeholder': 'Name'}),
 			'password1': forms.PasswordInput(),
 			'password2': forms.PasswordInput(),
 		}
 		labels = {
-			'name':'Name',
-			'email':'Email-id',
+			'username':'Email-id',
+			'first_name':'Name',
 			'password1':'Password',
 			'password2':'Confirm Password',
 		}
