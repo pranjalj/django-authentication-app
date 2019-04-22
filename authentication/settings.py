@@ -131,3 +131,16 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'home'
 
 LOGIN_URL = 'login'
+
+#Email Backend
+# WARNING: don't run Email Backend in production!
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
+#Email settings for production
+'''
+EMAIL_HOST = 'email host you are using'
+EMAIL_PORT = portnumber
+EMAIL_HOST_USER = 'type username'
+EMAIL_HOST_PASSWORD = 'type password'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'NameOfComapny Team <noreply@example.com>'
+'''
