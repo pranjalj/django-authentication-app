@@ -1,2 +1,2 @@
 # django-authentication-app
-Login using email instead of username.
+This git branches have various login and registration app using django.
