@@ -1,2 +1,2 @@
 # django-authentication-app
-This git branches have password update feauture present in profile page using inbuilt django views.
+This git branch have password update feauture present in profile page using inbuilt django views.
