@@ -1,2 +1,2 @@
 # django-authentication-app
-This git branches have various login and registration app using django.
+This git branches have password update feauture present in profile page using inbuilt django views.
