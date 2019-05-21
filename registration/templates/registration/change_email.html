@@ -1,0 +1,44 @@
+{% extends 'home/base.html'  %}
+<!-- Profile of user -->
+{% load crispy_forms_tags %}
+{% block title %} User Profile {% endblock %}
+{% block content %}
+<h1>{{ user.first_name }}</h1>
+</br>
+<h4>Email: {{ user.email }}</h4>
+<h4>
+	{% if user.email != user.username %}
+	Username: {{user.username}}
+	{%endif%}
+</h4>
+<div class="content-selection">
+	<form method="POST">
+		{% csrf_token %}
+		<fieldset class="form-group">
+			<legend class="border-bottom-mb-4">Change Email</legend>
+			{{form|crispy}}
+		</fieldset>
+		<div class="form-group">
+			<button class="btn btn-outline-info" type="submit" name="register">Change Email</button>
+		</div>
+	</form>
+	<div class="border-top pt-3">
+		<p><b>&#187;</b></p>
+		<small class="text-muted">
+			<a class="ml" href="{% url 'fist_name_change' %}">Change Name</a>
+		</small>
+	</div>
+	<div class="border-top pt-3">
+		<p><b>&#187;</b></p>
+		<small class="text-muted">
+			<a class="ml" href="{% url 'username_change' %}">Change Usename</a>
+		</small>
+	</div>
+	<div class="border-top pt-3">
+		<p><b>&#187;</b></p>
+		<small class="text-muted">
+			<a class="ml" href="{% url 'password_change' %}">Change Password</a>
+		</small>
+	</div>
+</div>
+{% endblock %}

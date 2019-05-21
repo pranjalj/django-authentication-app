@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .forms import RegisterForm
+from .forms import RegisterForm, EmailChangeForm, UsernameChangeForm, FirstNameChangeForm
+from django.contrib.auth import get_user_model
+user = get_user_model()
+
 
 # Create your views here.
 
@@ -24,3 +27,35 @@ def register(request):
 def profile(request):
 	return render(request,'registration/profile.html')
 
+@login_required
+def editEmail(request):
+	if request.method=='POST':
+		form = EmailChangeForm(user,request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('profile')
+	else:
+		form = EmailChangeForm(user)
+	return render(request,'registration/change_email.html', {'form':form})
+
+@login_required
+def editUsername(request):
+	if request.method=='POST':
+		form = UsernameChangeForm(user,request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('profile')
+	else:
+		form = UsernameChangeForm(user)
+	return render(request,'registration/change_username.html', {'form':form})
+
+@login_required
+def editFirstName(request):
+	if request.method=='POST':
+		form = FirstNameChangeForm(user,request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('profile')
+	else:
+		form = FirstNameChangeForm(user)
+	return render(request,'registration/change_first_name.html', {'form':form})
