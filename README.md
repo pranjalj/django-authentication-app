@@ -1,2 +1,2 @@
 # django-authentication-app
-This git branches have various login and registration app using django.
+This branch has feature to edit email, username and name of user.
