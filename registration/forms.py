@@ -79,7 +79,7 @@ class EmailChangeForm(forms.Form):
 #editing username form
 class UsernameChangeForm(forms.Form):
 	"""
-	A form that lets a user change set their email while checking for a change in the 
+	A form that lets a user change set their username while checking for a change in the 
 	username.
 	"""
 	error_messages = {
@@ -133,7 +133,7 @@ class UsernameChangeForm(forms.Form):
 #editing first_name form
 class FirstNameChangeForm(forms.Form):
 	"""
-	A form that lets a user change set their email while checking for a change in the 
+	A form that lets a user change set their first_name while checking for a change in the 
 	first_name.
 	"""
 	error_messages = {

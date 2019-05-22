@@ -15,11 +15,11 @@
 	<form method="POST">
 		{% csrf_token %}
 		<fieldset class="form-group">
-			<legend class="border-bottom-mb-4">Change Email</legend>
+			<legend class="border-bottom-mb-4">Change Username</legend>
 			{{form|crispy}}
 		</fieldset>
 		<div class="form-group">
-			<button class="btn btn-outline-info" type="submit" name="register">Chnage Username</button>
+			<button class="btn btn-outline-info" type="submit" name="change_username">Chnage Username</button>
 		</div>
 	</form>
 	<div class="border-top pt-3">
