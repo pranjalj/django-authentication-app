@@ -3,6 +3,9 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
+    path('auth/', include('social_django.urls', namespace='social')),
+    path('settings/', views.settings, name='settings'),
+    path('settings/password/', views.password, name='password'),
 	path('password_change/', 
 			auth_views.PasswordChangeView.as_view(template_name='registration/change_password.html'),
 			name='password_change'),
