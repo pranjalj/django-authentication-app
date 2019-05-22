@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'home',
     'registration',
     'crispy_forms',
+    'social_django',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'authentication.urls'
@@ -65,10 +67,20 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 WSGI_APPLICATION = 'authentication.wsgi.application'
 
@@ -131,6 +143,30 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 LOGIN_REDIRECT_URL = 'home'
 
 LOGIN_URL = 'login'
+
+LOGOUT_URL = 'logout'
+
+SOCIAL_AUTH_LOGIN_ERROR_URL = '/settings/'
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/settings/'
+
+SOCIAL_AUTH_RAISE_EXCEPTIONS = False
+
+#Social Authentication
+'''
+SOCIAL_AUTH_GITHUB_KEY = 'INSERT_PROVIDED_KEY_HERE'
+SOCIAL_AUTH_GITHUB_SECRET = 'INSERT_PROVIDED_SECRET_HERE'
+
+SOCIAL_AUTH_TWITTER_KEY = 'INSERT_PROVIDED_KEY_HERE'
+SOCIAL_AUTH_TWITTER_SECRET = 'INSERT_PROVIDED_SECRET_HERE'
+
+SOCIAL_AUTH_FACEBOOK_KEY = 'INSERT_PROVIDED_KEY_HERE'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'INSERT_PROVIDED_SECRET_HERE'
+
+OCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'INSERT_PROVIDED_KEY_HERE'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'INSERT_PROVIDED_SECRET_HERE'
+
+'''
 
 #Email Backend
 # WARNING: don't run Email Backend in production!
