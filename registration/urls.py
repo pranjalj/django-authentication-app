@@ -12,6 +12,7 @@ urlpatterns = [
     path('email_change/', views.editEmail,name='email_change'),
     path('username_change/', views.editUsername,name='username_change'),
     path('first_name_change/', views.editFirstName,name='first_name_change'),
+    path('delete_user/', views.deleteUser,name='delete_user'),
 	path('',include('django.contrib.auth.urls')),
     path('register/', views.register,name='register'),
 	path('profile/', views.profile , name='profile'),

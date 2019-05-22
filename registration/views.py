@@ -59,3 +59,23 @@ def editFirstName(request):
 	else:
 		form = FirstNameChangeForm(user)
 	return render(request,'registration/change_first_name.html', {'form':form})
+
+@login_required
+def deleteUser(request):
+	if request.method=='POST':
+		try:
+			user = request.user
+			user.is_active = False
+			user.save()
+			messages.success(request, "The user is deleted")            
+
+		except user.DoesNotExist:
+			messages.error(request, "User doesnot exist")    
+			return render(request, 'login')
+
+		except Exception as e: 
+			messages.error(request, "Error" + str(e))   
+			return render(request, 'registration/delete_user.html')
+
+		return redirect('logout')
+	return render(request,'registration/delete_user.html')
