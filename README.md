@@ -1,2 +1,3 @@
 # django-authentication-app
-This git branches have various login and registration app using django.
+This branch add feature of google reCAPTCHA during registration.
+This add reCAPTCHA as a decorator.
