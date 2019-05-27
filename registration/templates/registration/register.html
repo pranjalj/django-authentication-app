@@ -9,6 +9,8 @@
 		<fieldset class="form-group">
 			<legend class="border-bottom-mb-4">Register User</legend>
 			{{form|crispy}}
+			<script src='https://www.google.com/recaptcha/api.js'></script>
+    		<div class="g-recaptcha" data-sitekey="GOOGLE_RECAPTCHA_SITE_KEY"></div>
 		</fieldset>
 		<div class="form-group">
 			<button class="btn btn-outline-info" type="submit" name="register">Register</button>

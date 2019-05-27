@@ -168,6 +168,9 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'INSERT_PROVIDED_SECRET_HERE'
 
 '''
 
+#Google Recaptcha
+GOOGLE_RECAPTCHA_SECRET_KEY = 'GOOGLE_RECAPTCHA_SECRET_KEY'
+
 #Email Backend
 # WARNING: don't run Email Backend in production!
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # During development only
